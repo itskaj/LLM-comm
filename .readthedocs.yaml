@@ -3,6 +3,7 @@ version: 2
 # Build using Read the Docs defaults, but you can also define Python dependencies here if needed
 build:
   image: latest
+  os:
 
 # You aren't using Sphinx or MkDocs, so skip these
 sphinx:
