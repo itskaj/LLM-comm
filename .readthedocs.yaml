@@ -17,7 +17,7 @@ python:
 # Set the type of documentation you're serving, this can be custom static HTML files
 formats:
   - htmlzip
-  - PDF
+  - pdf
 
 # Include all files in the directory, unless specified otherwise
 include:
