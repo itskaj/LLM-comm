@@ -1,40 +1,61 @@
-// script.js - JavaScript for LLM Communication Framework Documentation
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const sideNav = document.getElementById('side-nav');
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    // Toggle mobile menu
+    menuToggle.addEventListener('click', () => {
+        sideNav.classList.toggle('active');
+    });
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Add smooth scrolling to all links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // Smooth scrolling and active link highlighting
+    links.forEach(link => {
+        link.addEventListener('click', e => {
             e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            window.scrollTo({
+                top: targetElement.offsetTop - 20,
                 behavior: 'smooth'
             });
+
+            // Close mobile menu if open
+            sideNav.classList.remove('active');
+
+            // Update active link
+            links.forEach(l => l.classList.remove('active-link'));
+            link.classList.add('active-link');
         });
     });
 
-    // Add active class to current nav item
-    const currentPage = window.location.pathname.split("/").pop();
-    document.querySelectorAll('nav a').forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('text-blue-200');
+    // Intersection Observer for section highlighting
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                links.forEach(link => {
+                    link.classList.toggle('active-link', link.getAttribute('href') === `#${id}`);
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('section[id]').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Show/hide side navigation based on scroll position
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+        if (st > lastScrollTop && st > 100) {
+            // Scrolling down
+            sideNav.classList.add('md:hidden');
+        } else {
+            // Scrolling up
+            sideNav.classList.remove('md:hidden');
         }
-    });
-
-    // Add copy to clipboard functionality for code snippets (if any)
-    document.querySelectorAll('pre code').forEach((block) => {
-        const button = document.createElement('button');
-        button.innerText = 'Copy';
-        button.classList.add('absolute', 'top-2', 'right-2', 'bg-gray-700', 'text-white', 'px-2', 'py-1', 'rounded', 'text-sm');
-        
-        block.parentNode.style.position = 'relative';
-        block.parentNode.appendChild(button);
-
-        button.addEventListener('click', () => {
-            navigator.clipboard.writeText(block.innerText);
-            button.innerText = 'Copied!';
-            setTimeout(() => {
-                button.innerText = 'Copy';
-            }, 2000);
-        });
-    });
+        lastScrollTop = st <= 0 ? 0 : st;
+    }, false);
 });
