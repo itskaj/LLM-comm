@@ -1,60 +1,78 @@
-/* General Styles */
+/* Custom styles for LLM Communication Framework Documentation */
+
+/* Global styles */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header styles */
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+    background: linear-gradient(to right, #2563eb, #3b82f6);
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+/* Navigation styles */
+nav a {
+    transition: all 0.3s ease;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
+nav a:hover {
     text-decoration: underline;
 }
 
+/* Main content styles */
 main {
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 40px;
+    min-height: calc(100vh - 200px);
 }
 
-h1, h2 {
-    color: #4CAF50;
+/* Section styles */
+section {
+    transition: all 0.3s ease;
 }
 
-.details summary {
-    font-weight: bold;
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Button styles */
+.bg-blue-600 {
+    transition: all 0.3s ease;
+}
+
+.bg-blue-600:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles */
 footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 14px;
-    color: #777;
+    background: linear-gradient(to right, #1e3a8a, #2563eb);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer, nav {
+        display: none;
+    }
+
+    main {
+        margin: 0;
+        padding: 0;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
 }

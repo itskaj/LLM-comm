@@ -3,36 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM-to-LLM Communications Vocabulary</title>
+    <title>LLM Communication Framework Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add this inline style to adjust the banner position */
+        body {
+            padding-top: 60px; /* Adjust this value based on your banner height */
+        }
+        header {
+            position: static;
+        }
+        main {
+            margin-top: 1rem; /* Add some space between the banner and the main content */
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4 shadow-md mb-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">LLM Communication Framework</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:text-blue-200">Home</a></li>
+                    <li><a href="#vocabulary" class="hover:text-blue-200">Vocabulary</a></li>
+                    <li><a href="#" class="hover:text-blue-200">API</a></li>
+                    <li><a href="#" class="hover:text-blue-200">Examples</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <h1>LLM-to-LLM Communications Vocabulary</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="vocab.html">Vocabulary Definitions</a></li>
-            <li><a href="#">API Reference</a></li>
-            <li><a href="#">Examples</a></li>
-        </ul>
-    </nav>
-</header>
+    <main class="container mx-auto p-4">
+        <section id="home" class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-3xl font-bold mb-4">Welcome to the LLM Communication Framework</h2>
+                <p class="text-lg mb-4">
+                    This framework helps developers structure communication between large language models (LLMs) and code. It offers a set of vocabulary definitions designed to facilitate LLM-to-LLM interactions using JSON-LD format.
+                </p>
+                <p class="text-lg mb-4">
+                    By providing a clear structure for defining the types of data being sent and received, this project aims to make the communication between systems and LLMs more transparent and effective.
+                </p>
+                <a href="#vocabulary" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">Explore Vocabulary Definitions</a>
+            </div>
 
-<main>
-    <section>
-        <h2>Welcome to the LLM Communications Vocabulary</h2>
-        <p>
-            This documentation defines the framework for LLM-to-LLM communication, focusing on creating structured interactions using JSON-LD. Developers can extend the framework by defining their own data contexts, making communication clearer and standardised across applications.
-        </p>
-        <a href="vocab.html" class="button">Explore Vocabulary</a>
-    </section>
-</main>
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4">Key Features</h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Standardized vocabulary for LLM-to-LLM communication</li>
+                    <li>JSON-LD format for improved context and understanding</li>
+                    <li>Extensible framework for custom application needs</li>
+                    <li>Clear documentation and examples</li>
+                </ul>
+            </div>
 
-<footer>
-    <p>&copy; 2024 LLM Communications Project. All rights reserved.</p>
-</footer>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4">Getting Started</h2>
+                <p class="mb-4">To start using the LLM Communication Framework, follow these steps:</p>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li>Review the <a href="#vocabulary" class="text-blue-600 hover:underline">vocabulary definitions</a></li>
+                    <li>Explore the API documentation (coming soon)</li>
+                    <li>Check out the examples to see the framework in action</li>
+                    <li>Integrate the framework into your project</li>
+                </ol>
+            </div>
+        </section>
 
+        <section id="vocabulary" class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">Vocabulary Definitions</h2>
+
+            <div id="types" class="mb-8">
+                <h3 class="text-2xl font-bold mb-4">Types</h3>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h4 class="text-xl font-bold mb-2">Conversation</h4>
+                        <p>A sequence of messages exchanged between two or more participants (Agents or Users) in a coherent dialogue.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h4 class="text-xl font-bold mb-2">Message</h4>
+                        <p>A single unit of communication within a conversation, containing content sent from one participant to another.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h4 class="text-xl font-bold mb-2">Agent</h4>
+                        <p>An AI entity capable of sending and receiving messages in a conversation.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h4 class="text-xl font-bold mb-2">User</h4>
+                        <p>A human participant in the conversation, capable of sending and receiving messages.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="properties">
+                <h3 class="text-2xl font-bold mb-4">Properties</h3>
+                <div class="space-y-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h4 class="text-xl font-bold mb-2">id</h4>
+                        <p>A unique identifier for an entity (Conversation, Message, Agent, or User).</p>
+                        <p class="mt-2"><strong>Expected value:</strong> A string that uniquely identifies the entity.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h4 class="text-xl font-bold mb-2">type</h4>
+                        <p>Specifies the type of an entity.</p>
+                        <p class="mt-2"><strong>Expected value:</strong> One of "Conversation", "Message", "Agent", or "User".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 LLM Communication Framework. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
