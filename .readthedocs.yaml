@@ -24,11 +24,11 @@ sphinx:
   # fail_on_warning: true
 
 # Include all files in the directory, unless specified otherwise
-include:
-  - docs/
+# include:
+  # - docs/
 
 # Specify the directory where your documentation lives, if it's not the root directory
-docs_dir: docs
+# docs_dir: docs
 
 # Optionally build your docs in additional formats such as PDF and ePub
 # formats:
