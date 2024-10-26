@@ -16,7 +16,7 @@ This repository provides a private framework for setting up and testing local LL
 ### Step 1: Clone the Repository or download the files
 
 ```bash
-git clone https://github.com/itskaj/.git
+git clone https://github.com/itskaj/LLM-comm/tree/llm-communication-framework.git
 cd llm-communication-framework
 ```
 
