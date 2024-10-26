@@ -1,0 +1,34 @@
+# compose.yaml
+services:
+  fastapi:
+    # build: .
+    image: itskadge/llm-communication-framework:llm-api-fastapi
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama
+    environment:
+     - OLLAMA_URL=http://ollama:11434
+    restart: always
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /code
+
+  ollama:
+    image: itskadge/llm-communication-framework:llm-api-ollama # ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models-store:/root/.ollama
+    restart: always
+    # healthcheck:
+    #   test: ["CMD", "curl", "-f", "http://localhost:11434"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 10
+
+volumes:
+  ollama-models-store:
+    external: true
